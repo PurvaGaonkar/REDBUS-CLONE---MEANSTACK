@@ -1,0 +1,66 @@
+<div class="community">
+  <header class="hero">
+    <span class="eyebrow">TEDBUS COMMUNITY</span>
+    <h1>Every journey has a story.</h1>
+    <p>Share experiences, discover destinations and connect with travellers.</p>
+  </header>
+
+  <nav class="categories">
+    <button *ngFor="let item of categories"
+      [class.active]="category === item"
+      (click)="category = item">{{ item }}</button>
+  </nav>
+
+  <section class="composer">
+    <h2>Share your journey</h2>
+    <p *ngIf="!verified" class="notice">
+      Verify your account to publish posts, like and comment.
+    </p>
+
+    <select [(ngModel)]="selectedCategory">
+      <option>Stories</option>
+      <option>Routes</option>
+      <option>Destinations</option>
+      <option>Travel Tips</option>
+    </select>
+
+    <textarea [(ngModel)]="newPost"
+      placeholder="Where have you travelled? Share your story..."
+      maxlength="3000"></textarea>
+
+    <button class="primary" [disabled]="!verified || !newPost.trim()"
+      (click)="createPost()">Publish post</button>
+  </section>
+
+  <section class="feed">
+    <article class="post" *ngFor="let post of filteredPosts">
+      <div class="post-heading">
+        <div>
+          <h3>{{ post.author }}</h3>
+          <span class="tag">{{ post.category }}</span>
+        </div>
+        <button (click)="reportPost(post)">Report</button>
+      </div>
+
+      <p class="post-content">{{ post.content }}</p>
+
+      <div class="actions">
+        <button [disabled]="!verified" (click)="toggleLike(post)">
+          {{ post.liked ? '♥ Liked' : '♡ Like' }} · {{ post.likes }}
+        </button>
+        <button (click)="sharePost(post)">Share</button>
+      </div>
+
+      <div class="comments">
+        <p *ngFor="let comment of post.comments">{{ comment }}</p>
+        <form (ngSubmit)="addComment(post)">
+          <input [(ngModel)]="post.commentInput"
+            [name]="'comment-' + post.id"
+            placeholder="Write a comment..." maxlength="1000">
+          <button type="submit"
+            [disabled]="!verified || !post.commentInput.trim()">Comment</button>
+        </form>
+      </div>
+    </article>
+  </section>
+</div>

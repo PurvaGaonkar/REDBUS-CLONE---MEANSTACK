@@ -9,7 +9,9 @@ app.use(cors());
 app.use(bodyparser.json())
 const customerroutes=require("./routes/customer");
 const routesroute=require("./routes/route");
-const bookingroute=require("./routes/booking")
+const bookingroute=require("./routes/booking");
+app.use(express.json());
+app.use("/api/community", require("./routes/community"));
 app.use(bookingroute)
 app.use(routesroute)
 app.use(customerroutes)
