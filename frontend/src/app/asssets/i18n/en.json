@@ -1,0 +1,102 @@
+
+{
+  "NAVBAR": {
+    "HOME": "Home",
+    "MY_TRIPS": "My Trips",
+    "PROFILE": "Profile",
+    "COMMUNITY": "Community",
+    "LOGIN": "Sign In",
+    "LOGOUT": "Sign Out",
+    "LANGUAGE": "Language"
+  },
+  "HOME": {
+    "TITLE": "Book Your Bus Tickets",
+    "SUBTITLE": "Travel comfortably to your destination",
+    "FROM": "From",
+    "TO": "To",
+    "DATE": "Journey Date",
+    "SEARCH_BUSES": "Search Buses",
+    "POPULAR_ROUTES": "Popular Routes",
+    "WHY_CHOOSE_US": "Why Choose TEDBUS?",
+    "SAFE_TRAVEL": "Safe and Comfortable Travel",
+    "EASY_BOOKING": "Easy Online Booking",
+    "SUPPORT": "Customer Support"
+  },
+  "BUS": {
+    "AVAILABLE": "Available Buses",
+    "DEPARTURE": "Departure",
+    "ARRIVAL": "Arrival",
+    "DURATION": "Duration",
+    "FARE": "Fare",
+    "SEATS": "Seats",
+    "BOOK_NOW": "Book Now",
+    "VIEW_SEATS": "View Seats",
+    "NO_BUSES": "No buses found for this route.",
+    "SELECT_SEATS": "Select Seats"
+  },
+  "BOOKING": {
+    "TITLE": "Booking Details",
+    "PASSENGER_NAME": "Passenger Name",
+    "EMAIL": "Email Address",
+    "PHONE": "Phone Number",
+    "CONFIRM": "Confirm Booking",
+    "CANCEL": "Cancel Booking",
+    "SUCCESS": "Booking confirmed successfully.",
+    "FAILED": "Unable to complete your booking. Please try again."
+  },
+  "PAYMENT": {
+    "TITLE": "Payment",
+    "TOTAL": "Total Amount",
+    "PAY_NOW": "Pay Now",
+    "SUCCESS": "Payment completed successfully.",
+    "FAILED": "Payment failed. Please try again."
+  },
+  "PROFILE": {
+    "TITLE": "My Profile",
+    "NAME": "Name",
+    "EMAIL": "Email",
+    "AGE": "Age",
+    "GENDER": "Gender",
+    "SAVE": "Save Changes"
+  },
+  "TRIPS": {
+    "TITLE": "My Trips",
+    "UPCOMING": "Upcoming Trips",
+    "COMPLETED": "Completed Trips",
+    "CANCELLED": "Cancelled Trips",
+    "EMPTY": "You have no trips to display."
+  },
+  "VALIDATION": {
+    "REQUIRED": "This field is required.",
+    "INVALID_EMAIL": "Please enter a valid email address.",
+    "INVALID_PHONE": "Please enter a valid phone number.",
+    "SELECT_ROUTE": "Please select your departure and destination.",
+    "SELECT_DATE": "Please select a valid journey date."
+  },
+  "ERROR": {
+    "GENERAL": "Something went wrong. Please try again.",
+    "NETWORK": "Unable to connect to the server.",
+    "NOT_FOUND": "The requested information was not found.",
+    "UNAUTHORIZED": "Please sign in to continue."
+  },
+  "NOTIFICATIONS": {
+    "TITLE": "Notifications",
+    "BOOKING_CONFIRMED": "Your booking has been confirmed.",
+    "BOOKING_CANCELLED": "Your booking has been cancelled.",
+    "SCHEDULE_CHANGED": "Your bus schedule has changed.",
+    "JOURNEY_REMINDER": "Your journey is coming up soon.",
+    "MARK_READ": "Mark as Read",
+    "NO_NOTIFICATIONS": "You have no notifications."
+  },
+  "COMMON": {
+    "SEARCH": "Search",
+    "SUBMIT": "Submit",
+    "SAVE": "Save",
+    "CANCEL": "Cancel",
+    "BACK": "Back",
+    "NEXT": "Next",
+    "LOADING": "Loading...",
+    "YES": "Yes",
+    "NO": "No"
+  }
+}

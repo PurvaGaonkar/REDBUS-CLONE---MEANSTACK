@@ -1,0 +1,155 @@
+
+<div class="planner">
+  <header class="planner-header">
+    <div>
+      <p class="eyebrow">TEDBUS NAVIGATION</p>
+      <h1>Route Planner</h1>
+      <p class="subtitle">
+        Compare routes, plan stops and estimate journey time.
+      </p>
+    </div>
+    <button class="secondary-button" (click)="openExternalDirections()">
+      Open directions
+    </button>
+  </header>
+
+  <section class="planner-layout">
+    <div class="panel route-form">
+      <h2>Plan your journey</h2>
+
+      <label for="origin">Starting point</label>
+      <input
+        id="origin"
+        [(ngModel)]="origin"
+        placeholder="Enter starting location"
+      />
+
+      <div class="waypoint-heading">
+        <label>Intermediate stops</label>
+        <button class="text-button" (click)="addWaypoint()">
+          + Add stop
+        </button>
+      </div>
+
+      <div class="waypoint-row" *ngFor="let stop of waypoints; let i = index">
+        <input
+          [(ngModel)]="waypoints[i]"
+          [placeholder]="'Stop ' + (i + 1)"
+        />
+        <button
+          class="remove-button"
+          type="button"
+          (click)="removeWaypoint(i)"
+          aria-label="Remove stop"
+        >
+          ×
+        </button>
+      </div>
+
+      <label for="destination">Destination</label>
+      <input
+        id="destination"
+        [(ngModel)]="destination"
+        placeholder="Enter destination"
+      />
+
+      <button
+        class="primary-button"
+        (click)="planRoute()"
+        [disabled]="loading"
+      >
+        {{ loading ? 'Calculating route...' : 'Find routes' }}
+      </button>
+
+      <button
+        class="secondary-button full-width"
+        (click)="saveCurrentRoute()"
+        [disabled]="!routes.length"
+      >
+        Save this route
+      </button>
+
+      <p class="error-message" *ngIf="errorMessage">
+        {{ errorMessage }}
+      </p>
+
+      <p class="updated" *ngIf="lastUpdated">
+        Last updated: {{ lastUpdated }}
+      </p>
+    </div>
+
+    <div class="map-panel">
+      <div id="tedbus-map" class="map"></div>
+    </div>
+  </section>
+
+  <section class="results-section" *ngIf="routes.length">
+    <div class="results-heading">
+      <div>
+        <h2>Available routes</h2>
+        <p>{{ routes.length }} route option(s) returned</p>
+      </div>
+
+      <select
+        [ngModel]="sortBy"
+        (ngModelChange)="setSortBy($event)"
+        aria-label="Sort routes"
+      >
+        <option value="time">Shortest travel time</option>
+        <option value="distance">Shortest distance</option>
+      </select>
+    </div>
+
+    <article
+      class="route-card"
+      *ngFor="let route of routes"
+      [class.active]="route.index === selectedRouteIndex"
+      (click)="selectRoute(route.index)"
+    >
+      <div class="route-card-top">
+        <div>
+          <span class="route-label">
+            {{ route.index === routes[0].index ? 'Recommended' : 'Alternative' }}
+          </span>
+          <h3>Route {{ route.index + 1 }}</h3>
+        </div>
+
+        <span class="route-check" *ngIf="route.index === selectedRouteIndex">
+          Selected
+        </span>
+      </div>
+
+      <div class="route-metrics">
+        <div>
+          <span>Estimated time</span>
+          <strong>{{ formatDuration(route.duration) }}</strong>
+        </div>
+        <div>
+          <span>Distance</span>
+          <strong>{{ formatDistance(route.distance) }}</strong>
+        </div>
+      </div>
+    </article>
+  </section>
+
+  <section class="saved-section">
+    <h2>Saved routes</h2>
+    <p *ngIf="!savedRoutes.length" class="subtitle">
+      Your saved routes will appear here.
+    </p>
+
+    <div class="saved-route" *ngFor="let route of savedRoutes; let i = index">
+      <button class="saved-name" (click)="loadSavedRoute(route)">
+        <strong>{{ route.origin }}</strong>
+        <span>to {{ route.destination }}</span>
+      </button>
+      <button
+        class="remove-button"
+        (click)="deleteSavedRoute(i)"
+        aria-label="Delete saved route"
+      >
+        ×
+      </button>
+    </div>
+  </section>
+</div>

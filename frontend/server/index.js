@@ -1,3 +1,5 @@
+
+require("dotenv").config();
 const express=require('express')
 const bodyparser=require('body-parser')
 const cors =require('cors')
@@ -12,10 +14,10 @@ const routesroute=require("./routes/route");
 const bookingroute=require("./routes/booking");
 app.use(express.json());
 app.use("/api/community", require("./routes/community"));
-app.use(bookingroute)
-app.use(routesroute)
-app.use(customerroutes)
-
+app.use("/api/notifications", require("./routes/notification"));
+app.use("/api/booking", require("./routes/booking"));
+app.use("/api/routes", require("./routes/route"));
+app.use("/api/customers", require("./routes/customer"));
 const DBURL="mongodb+srv://Purva:tedbus12345@tedbus.en0zc0f.mongodb.net/"
 mongoose.connect(DBURL)
 .then(()=> console.log("Mongodb connected"))
