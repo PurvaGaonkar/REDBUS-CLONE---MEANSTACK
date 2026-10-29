@@ -1,8 +1,12 @@
 
-import { Component, OnInit, AfterViewInit } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  AfterViewInit
+} from '@angular/core';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
-
+import { ThemeService } from '../../service/theme.service';
 import { CustomerService } from '../../service/customer.service';
 
 declare var google: any;
@@ -13,7 +17,6 @@ declare var google: any;
   styleUrl: './navbar.component.css'
 })
 export class NavbarComponent implements OnInit, AfterViewInit {
-
   isloggedIn = false;
   selectedLanguage = 'en';
 
@@ -26,13 +29,13 @@ export class NavbarComponent implements OnInit, AfterViewInit {
   constructor(
     private router: Router,
     private customerservice: CustomerService,
-    private translate: TranslateService
+    private translate: TranslateService,
+    public themeService: ThemeService
   ) {}
 
   ngOnInit(): void {
     this.isloggedIn = !!sessionStorage.getItem('Loggedinuser');
 
-    // Restore the previously selected language.
     const savedLanguage = localStorage.getItem('tedbus_language');
     const supportedLanguages = ['en', 'hi', 'mr'];
 
@@ -43,7 +46,6 @@ export class NavbarComponent implements OnInit, AfterViewInit {
 
     this.changeLanguage(language);
 
-    // Initialize Google Sign-In only when the Google script is available.
     if (typeof google !== 'undefined' && google.accounts?.id) {
       google.accounts.id.initialize({
         client_id: 'YOUR_EXISTING_GOOGLE_CLIENT_ID',
@@ -64,16 +66,29 @@ export class NavbarComponent implements OnInit, AfterViewInit {
     }
 
     this.selectedLanguage = language;
-    localStorage.setItem('tedbus_language', language);
+
+    try {
+      localStorage.setItem('tedbus_language', language);
+    } catch {
+      // Language selection still works for this session.
+    }
 
     this.translate.setDefaultLang('en');
     this.translate.use(language);
   }
 
+  toggleTheme(): void {
+    this.themeService.toggleTheme();
+  }
+
   private rendergooglebutton(): void {
     const googlebtn = document.getElementById('google-btn');
 
-    if (googlebtn && typeof google !== 'undefined' && google.accounts?.id) {
+    if (
+      googlebtn &&
+      typeof google !== 'undefined' &&
+      google.accounts?.id
+    ) {
       google.accounts.id.renderButton(googlebtn, {
         theme: 'outline',
         size: 'medium',
@@ -93,7 +108,10 @@ export class NavbarComponent implements OnInit, AfterViewInit {
 
       this.customerservice.addcustomermongo(payload).subscribe({
         next: (customer) => {
-          sessionStorage.setItem('Loggedinuser', JSON.stringify(customer));
+          sessionStorage.setItem(
+            'Loggedinuser',
+            JSON.stringify(customer)
+          );
           this.isloggedIn = true;
         },
         error: (error) => {
@@ -101,7 +119,10 @@ export class NavbarComponent implements OnInit, AfterViewInit {
         }
       });
     } catch (error) {
-      console.error('Unable to process Google sign-in response', error);
+      console.error(
+        'Unable to process Google sign-in response',
+        error
+      );
     }
   }
 

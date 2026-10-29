@@ -4,9 +4,9 @@ const router = express.Router();
 
 const routecontroller = require("../controller/route");
 
-// Get buses for a departure, arrival, and travel date
+// GET /api/routes/:departure/:arrival/:date
 router.get(
-  "/routes/:departure/:arrival/:date",
+  "/:departure/:arrival/:date",
   routecontroller.getoneroute
 );
 

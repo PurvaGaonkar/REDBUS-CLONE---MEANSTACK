@@ -1,15 +1,74 @@
 /* You can add global styles to this file, and also import other style files */
+
 @import 'mapbox-gl/dist/mapbox-gl.css';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
-::-webkit-scrollbar{
-    background: white;
-    width: 0;
+:root {
+  color-scheme: light;
+  --page-bg: #ffffff;
+  --surface-bg: #ffffff;
+  --text-color: #17201b;
+  --muted-text: #647067;
+  --border-color: #dfe6e1;
+  --input-bg: #ffffff;
+  --hover-bg: #f3f7f4;
 }
 
+html[data-theme="dark"] {
+  color-scheme: dark;
+  --page-bg: #111714;
+  --surface-bg: #1b2420;
+  --text-color: #edf4ef;
+  --muted-text: #b0beb5;
+  --border-color: #39483f;
+  --input-bg: #202b25;
+  --hover-bg: #29372f;
+}
 
+html,
+body {
+  min-height: 100%;
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  background-color: var(--page-bg);
+  color: var(--text-color);
+}
+
+body {
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--border-color) var(--page-bg);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+input,
+select,
+textarea {
+  background-color: var(--input-bg);
+  color: var(--text-color);
+  border-color: var(--border-color);
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--muted-text);
+}
+
+a {
+  color: inherit;
+}
+
+button {
+  transition: background-color 0.2s ease, color 0.2s ease;
+}

@@ -1,0 +1,19 @@
+﻿{
+  "NAV": {
+    "HOME": "Home",
+    "BUS_TICKETS": "Bus Tickets",
+    "CAB_RENTAL": "Cab Rental",
+    "TRAIN_TICKETS": "Train Tickets",
+    "DARK_MODE": "Dark mode",
+    "LIGHT_MODE": "Light mode",
+    "SIGNED_IN": "Signed in",
+    "SIGN_OUT": "Sign out",
+    "LANGUAGE": "Select language"
+  },
+  "HOME": {
+    "TITLE": "Travel made simple",
+    "SUBTITLE": "Book your next journey with TEDBUS",
+    "LIVE_OFFERS": "Live Offers",
+    "SEARCH_BUSES": "Search Buses"
+  }
+}

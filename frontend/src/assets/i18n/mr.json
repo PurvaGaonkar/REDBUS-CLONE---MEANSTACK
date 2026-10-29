@@ -1,0 +1,19 @@
+﻿{
+  "NAV": {
+    "HOME": "मुख्यपृष्ठ",
+    "BUS_TICKETS": "बस तिकिटे",
+    "CAB_RENTAL": "कॅब भाड्याने",
+    "TRAIN_TICKETS": "रेल्वे तिकिटे",
+    "DARK_MODE": "डार्क मोड",
+    "LIGHT_MODE": "लाईट मोड",
+    "SIGNED_IN": "लॉग इन आहात",
+    "SIGN_OUT": "साइन आउट",
+    "LANGUAGE": "भाषा निवडा"
+  },
+  "HOME": {
+    "TITLE": "प्रवास आता सोपा",
+    "SUBTITLE": "TEDBUS सोबत तुमचा पुढील प्रवास बुक करा",
+    "LIVE_OFFERS": "थेट ऑफर्स",
+    "SEARCH_BUSES": "बस शोधा"
+  }
+}

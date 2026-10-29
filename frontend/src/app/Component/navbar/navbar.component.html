@@ -1,165 +1,132 @@
 
-<!-- navbar.component.html -->
+<header class="site-header">
+  <div class="navbar-container">
 
-<nav
-  class="px-4 md:px-14 py-2 md:py-3 flex flex-wrap gap-3 text-xs md:text-base font-normal items-center justify-between sticky top-0 bg-white z-20 drop-shadow-xl">
-
-  <!-- Navbar Left Part -->
-  <div class="flex gap-2 md:gap-6 items-center justify-between md:justify-start">
-
-    <!-- Logo -->
-    <div class="grid place-content-center">
+    <!-- Brand -->
+    <a class="brand" routerLink="/" aria-label="TEDBUS home">
       <img
-        class="md:w-[4.5rem] md:h-auto w-12 h-10"
-        src="../../../assets/red-bus-with-word-bus-it_600323-482.avif"
-        alt="Tedbus Logo"
+        class="brand-logo"
+        src="assets/red-bus-with-word-bus-it_600323-482.avif"
+        alt="TEDBUS"
       />
-    </div>
-
-    <div class="h-6 w-[1px] bg-gray-200"></div>
-
-    <!-- Transport Options -->
-    <div class="flex gap-2 md:gap-3">
-
-      <!-- Bus Tickets -->
-      <a
-        class="flex flex-col items-center text-center gap-1 px-2 py-3 rounded-lg group hover:bg-gray-100 bg-main-color sm:bg-transparent"
-        routerLink="/"
-      >
-        <svg
-          class="group-hover:fill-main-color fill-white sm:fill-black"
-          width="29"
-          height="20"
-          viewBox="0 0 29 20"
-          aria-hidden="true"
-        >
-          <path
-            fill-rule="evenodd"
-            clip-rule="evenodd"
-            d="M27.4574 2.53544C26.7324 1.13025 25.8004 0.327283 24.7992 0.217787C15.4095 -0.712926 3.43064 1.49524 0.979642 3.88589C-0.090514 4.9261-0.28038 7.3715 0.392782 11.3681C0.858818 14.1602 1.58376 16.6604 1.60102 16.7699L1.75637 17.3174L4.74245 16.9706C4.9841 18.6861 6.3822 20 8.07374 20C9.92062 20 11.4396 18.4123 11.4396 16.4414C11.4396 16.3501 11.4396 16.2771 11.4223 16.1859L18.4991 15.3282C18.4991 15.3464 18.4991 15.3829 18.4991 15.4012C18.4991 17.3539 20.0008 18.9598 21.8649 18.9598C23.7118 18.9598 25.2308 17.3721 25.2308 15.4012C25.2308 15.1092 25.1962 14.8172 25.1272 14.5435L28.1478 14.1785L28.3031 13.8317C29.5114 11.2039 29.0971 5.71082 27.4574 2.53544ZM8.07374 18.5948C6.9518 18.5948 6.03699 17.6276 6.03699 16.4414C6.03699 15.2552 6.9518 14.288 8.07374 14.288C9.19568 14.288 10.1105 15.2552 10.1105 16.4414C10.1105 17.6276 9.19568 18.5948 8.07374 18.5948ZM21.8477 17.5728C20.7257 17.5728 19.8109 16.6056 19.8109 15.4194C19.8109 14.2332 20.7257 13.266 21.8477 13.266C22.9696 13.266 23.8844 14.2332 23.8844 15.4194C23.8844 16.6056 22.9696 17.5728 21.8477 17.5728Z"
-          />
-        </svg>
-        <p>{{ 'NAVBAR.HOME' | translate }}</p>
-      </a>
-
-      <!-- Cab Rental -->
-      <a
-        class="flex flex-col items-center text-center gap-1 px-2 py-3 rounded-lg group hover:bg-gray-100"
-      >
-        <svg
-          class="group-hover:fill-[#5F4299]"
-          width="35"
-          height="20"
-          viewBox="0 0 35 20"
-          aria-hidden="true"
-        >
-          <path
-            d="M16.3867 14.881L16.3002 14.7492L16.1873 14.8594C15.6684 15.365 15.0775 15.7819 14.4314 16.0982C13.8116 16.4026 13.1535 16.6086 12.4737 16.7117V10.6877L17.0328 6.13978C17.3091 6.53514 17.5421 6.96166 17.727 7.40495L17.7847 7.54153L17.9144 7.46725C17.9528 7.44329 17.9697 7.4361 17.9841 7.42652C18.5125 7.13418 19.0962 6.94249 19.7208 6.85383L19.8865 6.82987L19.8241 6.67652C19.1635 5.02077 18.0345 3.60942 16.5572 2.59105C15.0439 1.55112 13.2736 1 11.4336 1C9.59355 1 7.84242 1.54393 6.33871 2.57668C4.86863 3.58307 3.73964 4.98243 3.07186 6.6238L3.0022 6.79633L3.18716 6.80351C3.86695 6.83466 4.50351 6.97604 5.08001 7.22764L5.19771 7.27796L5.25056 7.16054C5.4163 6.80351 5.61327 6.46086 5.83667 6.13738L10.3958 10.6853V16.7093C9.15877 16.52 7.99856 15.9928 7.03532 15.1781L6.93203 15.0919L6.84795 15.1973C6.47563 15.6645 6.01683 16.0503 5.48596 16.3427L5.35865 16.4097L5.19291 16.496L5.32983 16.623C7.00169 18.1565 9.16838 19 11.4336 19C13.814 19 16.0624 18.0799 17.7655 16.405L17.8832 16.2899L17.7439 16.2013C17.201 15.861 16.7446 15.4153 16.3867 14.8762V14.881Z"
-          />
-        </svg>
-        <p>Cab Rental</p>
-      </a>
-
-      <!-- Train Tickets -->
-      <a
-        class="flex flex-col items-center text-center gap-1 px-2 py-3 rounded-lg group hover:bg-gray-100"
-      >
-        <svg
-          class="group-hover:fill-main-color"
-          width="35"
-          height="20"
-          viewBox="0 0 35 20"
-          aria-hidden="true"
-        >
-          <path
-            d="M34.6657 13.3366L33.8769 14.3512H33.4167L33.5463 10.8389C33.5572 10.5179 33.5077 10.1979 33.4006 9.89748L30.9659 2.99232C30.8016 2.53105 30.5088 2.13359 30.1264 1.85262C29.744 1.57164 29.2901 1.42044 28.8247 1.41904H24.6508L23.8934 0.518577C23.7561 0.355357 23.5879 0.224779 23.3996 0.135409C23.2113 0.0460392 23.0073 -0.000151152 22.8009 4.79963e-07H20.718C20.4128 -0.000254262 20.1151 0.100901 19.8669 0.289128C19.6187 0.477356 19.4324 0.743237 19.3342 1.04944L19.2155 1.41904H0V2.8851H28.8276C29.0108 2.88542 29.1897 2.94459 29.3405 3.05479C29.4913 3.165 29.6071 3.32106 29.6725 3.50239L32.1072 10.4067C32.1493 10.5254 32.1684 10.6519 32.1633 10.7787L32.0132 14.862C32.0047 15.1089 31.906 15.3425 31.7379 15.5137C31.5698 15.6849 31.3455 15.7802 31.1123 15.7794H27.9282C27.7499 15.7796 27.5756 15.7239 27.4273 15.6191C27.2789 15.5143 27.1633 15.3652 27.095 15.1907L26.4912 13.6475C26.3343 13.244 26.0676 12.8992 25.7251 12.657C25.3825 12.4147 24.9797 12.2859 24.5678 12.2871H5.85336C5.46486 12.3643 5.08415 12.4798 4.75481 12.6981C4.42547 12.9164 4.1608 13.2286 3.99109 13.5989L3.6903 14.2447C3.61545 14.4045 3.50013 14.539 3.35724 14.6333C3.21434 14.7276 3.04951 14.7779 2.88116 14.7787H0V16.2447H2.88116C3.24969 16.243 3.61246 16.1477 3.93894 15.9665C4.26541 15.7854 4.54606 15.5238 4.75727 15.2038C4.51709 16.1252 4.61461 17.1088 5.03028 17.9572C5.44594 18.8056 6.14901 19.4562 6.99847 19.7784C7.84793 20.1006 8.78095 20.0705 9.61041 19.6944C10.4399 19.3182 11.1044 18.6237 11.4707 17.7501H9.84299C9.54763 18.1021 9.15824 18.3506 8.72649 18.4627C8.29474 18.5748 7.84102 18.5452 7.42552 18.3778C7.01002 18.2104 6.65237 17.9131 6.40002 17.5254C6.14766 17.1377 6.01252 16.6779 6.01252 16.2069C6.01252 15.7359 6.14766 15.2761 6.40002 14.8884C6.65237 14.5007 7.01002 14.2035 7.42552 14.0361C7.84102 13.8687 8.29474 13.839 8.72649 13.9511C9.15824 14.0632 9.54763 14.3117 9.84299 14.6637H11.4686C11.3386 14.3571 11.1708 14.0702 10.9697 13.8103L12.4809 13.8034C12.2771 14.0648 12.1076 14.3542 11.9769 14.6637H13.6047C13.8101 14.4187 14.0621 14.2226 14.3443 14.0883C14.6264 13.954 14.9322 13.8845 15.2415 13.8845C15.5508 13.8845 15.8566 13.954 16.1388 14.0883C16.4209 14.2226 16.673 14.4187 16.8784 14.6637H18.5069C18.3718 14.3453 18.1961 14.048 17.9847 13.7802L19.5425 13.7732C19.3284 14.0427 19.1507 14.3424 19.0145 14.6637H20.6452C20.9406 14.3115 21.3301 14.0627 21.762 13.9505C22.1939 13.8382 22.6479 13.8678 23.0636 14.0352C23.4793 14.2026 23.8371 14.5 24.0896 14.8879C24.3421 15.2757 24.4773 15.7357 24.4773 16.2069C24.4773 16.6781 24.3421 17.1381 24.0896 17.526C23.8371 17.9139 23.4793 18.2112 23.0636 18.3786C22.6479 18.546 22.1939 18.5756 21.762 18.4633C21.3301 18.3511 20.9406 18.1023 20.6452 17.7501H19.0167C19.3504 18.5426 19.9307 19.1896 20.6607 19.5831C21.3906 19.9767 22.226 20.0928 23.027 19.9121C23.8281 19.7314 24.5463 19.2649 25.0617 18.5904C25.577 17.916 25.8583 17.0746 25.8583 16.2069C25.8583 16.0716 25.8512 15.9363 25.8372 15.8018C26.0154 16.2315 26.3079 16.5968 26.679 16.8531C27.0502 17.1094 27.4837 17.2455 27.9267 17.2447H31.1123C31.5564 17.2461 31.9913 17.1099 32.3633 16.8528C32.7353 16.5958 33.0283 16.2291 33.2062 15.798H33.9301L34.6657 16.6367C34.693 16.6659 34.7265 16.6862 34.7633 16.695C34.8001 16.7038 34.8386 16.7007 34.8738 16.6861C34.9089 16.6714 34.9391 16.646 34.9604 16.613C34.9818 16.58 34.9933 16.5409 34.9934 16.5009L35 13.4662C35.0005 13.4248 34.9889 13.3842 34.9667 13.3501C34.9445 13.316 34.9129 13.2901 34.8762 13.2758C34.8395 13.2616 34.7995 13.2598 34.7618 13.2706C34.7241 13.2815 34.6905 13.3046 34.6657 13.3366Z"
-          />
-        </svg>
-        <p>Train Tickets</p>
-      </a>
-
-    </div>
-  </div>
-
-  <!-- Navbar Right Part -->
-  <div class="flex flex-wrap items-center gap-3">
-
-    <!-- Google Login -->
-    <div id="google-btn" *ngIf="!isloggedIn"></div>
-
-    <!-- Logged-in Menu -->
-    <div
-      class="hidden md:flex items-center gap-3"
-      *ngIf="isloggedIn"
-    >
-      <a
-        class="flex items-center justify-center gap-2 h-10 px-2 rounded-lg hover:bg-gray-100"
-      >
-        <i class="fa-solid fa-headset text-[#4a4a4a] text-xl"></i>
-        <p>Help</p>
-      </a>
-
-      <button
-        class="flex items-center justify-center gap-2 h-10 px-2 rounded-lg hover:bg-gray-100"
-        [matMenuTriggerFor]="menu"
-      >
-        <i class="fa-regular fa-user text-[#4a4a4a] text-xl"></i>
-        <p>Account</p>
-        <i class="fa-solid fa-angle-down text-[#4a4a4a] text-xl"></i>
-      </button>
-
-      <mat-menu #menu="matMenu">
-        <button mat-menu-item (click)="navigate('/my-trips')">
-          {{ 'NAVBAR.MY_TRIPS' | translate }}
-        </button>
-
-        <button mat-menu-item>
-          Wallet/Cards
-        </button>
-
-        <button mat-menu-item (click)="navigate('/profile')">
-          {{ 'NAVBAR.PROFILE' | translate }}
-        </button>
-
-        <button mat-menu-item>
-          Wallet
-        </button>
-
-        <button mat-menu-item (click)="handlelogout()">
-          {{ 'NAVBAR.LOGOUT' | translate }}
-        </button>
-      </mat-menu>
-    </div>
-
-    <!-- Travel Community -->
-    <a
-      routerLink="/community"
-      class="px-2 py-2 rounded-lg hover:bg-gray-100"
-    >
-      {{ 'NAVBAR.COMMUNITY' | translate }}
+      <span class="brand-name">TED<span>BUS</span></span>
     </a>
 
-    <!-- Language Selector -->
-    <div class="flex items-center gap-2">
-      <label
-        for="language"
-        class="text-gray-700 whitespace-nowrap"
-      >
-        {{ 'NAVBAR.LANGUAGE' | translate }}
-      </label>
+    <div class="nav-divider"></div>
 
-      <select
-        id="language"
-        class="border border-gray-300 rounded-md px-2 py-2 bg-white text-gray-800 outline-none focus:ring-2 focus:ring-green-500"
-        [value]="selectedLanguage"
-        (change)="changeLanguage($any($event.target).value)"
-        aria-label="Select language"
+    <!-- Main navigation -->
+    <nav class="main-nav" aria-label="Main navigation">
+      <button
+        type="button"
+        class="nav-link"
+        (click)="navigate('/cab-rental')"
       >
-        <option value="en">English</option>
-        <option value="hi">हिन्दी</option>
-        <option value="mr">मराठी</option>
-      </select>
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M5 11l1.5-4h11l1.5 4" />
+          <rect x="3" y="11" width="18" height="7" rx="2" />
+          <path d="M6 18v2m12-2v2M6 14h2m8 0h2" />
+        </svg>
+        <span>{{ 'NAV.CAB_RENTAL' | translate }}</span>
+      </button>
+
+      <button
+        type="button"
+        class="nav-link"
+        (click)="navigate('/train-tickets')"
+      >
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <rect x="5" y="2" width="14" height="17" rx="4" />
+          <path d="M8 6h8M8 11h.01M16 11h.01M8 19l-3 3m11-3 3 3M8 15h8" />
+        </svg>
+        <span>{{ 'NAV.TRAIN_TICKETS' | translate }}</span>
+      </button>
+    </nav>
+
+    <!-- Right-side actions -->
+    <div class="navbar-actions">
+
+      <!-- Theme toggle -->
+      <button
+        type="button"
+        class="theme-toggle"
+        (click)="toggleTheme()"
+        [attr.aria-pressed]="themeService.theme === 'dark'"
+        [attr.aria-label]="
+          themeService.theme === 'dark'
+            ? 'Switch to light mode'
+            : 'Switch to dark mode'
+        "
+      >
+        <svg
+          *ngIf="themeService.theme === 'light'"
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+        >
+          <path d="M20.9 13A9 9 0 0 1 11 3.1 9 9 0 1 0 20.9 13Z" />
+        </svg>
+
+        <svg
+          *ngIf="themeService.theme === 'dark'"
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+        >
+          <circle cx="12" cy="12" r="4" />
+          <path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l-1.42-1.42m11.3-11.3 1.42-1.42" />
+        </svg>
+
+        <span>
+          {{
+            (themeService.theme === 'dark'
+              ? 'NAV.LIGHT_MODE'
+              : 'NAV.DARK_MODE') | translate
+          }}
+        </span>
+      </button>
+
+      <!-- Google Sign-In -->
+      <div
+        *ngIf="!isloggedIn"
+        id="google-btn"
+        class="google-signin"
+      ></div>
+
+      <!-- Logged-in user -->
+      <div *ngIf="isloggedIn" class="user-actions">
+        <span class="signed-in-label">
+          {{ 'NAV.SIGNED_IN' | translate }}
+        </span>
+
+        <button
+          type="button"
+          class="sign-out-button"
+          (click)="handlelogout()"
+        >
+          {{ 'NAV.SIGN_OUT' | translate }}
+        </button>
+      </div>
+
+      <!-- Language selector -->
+      <div class="language-wrapper">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="12" cy="12" r="9" />
+          <path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18" />
+        </svg>
+
+        <select
+          class="language-select"
+          [value]="selectedLanguage"
+          (change)="changeLanguage($any($event.target).value)"
+          [attr.aria-label]="'NAV.LANGUAGE' | translate"
+        >
+          <option
+            *ngFor="let language of languages"
+            [value]="language.code"
+          >
+            {{ language.name }}
+          </option>
+        </select>
+      </div>
+
     </div>
-
   </div>
-</nav>
+</header>

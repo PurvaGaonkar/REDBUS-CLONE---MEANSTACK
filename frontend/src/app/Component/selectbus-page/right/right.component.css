@@ -1,0 +1,38 @@
+
+:host {
+  display: block;
+  min-width: 0;
+  color: var(--text-color, #17201b);
+}
+
+.bus-results {
+  min-width: 0;
+  padding: 12px;
+  color: var(--text-color, #17201b);
+}
+
+.bus-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.results-message {
+  padding: 24px 16px;
+  margin: 12px 0;
+  border: 1px solid var(--border-color, #dfe6e1);
+  border-radius: 8px;
+  background: var(--surface-bg, #ffffff);
+  color: var(--text-color, #17201b);
+  text-align: center;
+}
+
+.error-message {
+  color: var(--muted-text, #647067);
+}
+
+@media (max-width: 768px) {
+  .bus-results {
+    padding: 8px;
+  }
+}

@@ -1,4 +1,22 @@
-.SelectBUS_MAINCONTENT{
-    display:grid;
-    grid-template-columns: 20% 80%;
+:host {
+  display: block;
+  min-height: 100%;
+}
+
+.selectbus {
+  min-height: 100vh;
+  background: var(--page-bg, #ffffff);
+  color: var(--text-color, #17201b);
+}
+
+.SelectBUS_MAINCONTENT {
+  display: grid;
+  grid-template-columns: minmax(200px, 20%) minmax(0, 80%);
+  gap: 12px;
+}
+
+@media (max-width: 768px) {
+  .SelectBUS_MAINCONTENT {
+    grid-template-columns: 1fr;
+  }
 }

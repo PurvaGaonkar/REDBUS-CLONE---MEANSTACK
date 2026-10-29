@@ -1,0 +1,19 @@
+﻿{
+  "NAV": {
+    "HOME": "होम",
+    "BUS_TICKETS": "बस टिकट",
+    "CAB_RENTAL": "कैब किराया",
+    "TRAIN_TICKETS": "ट्रेन टिकट",
+    "DARK_MODE": "डार्क मोड",
+    "LIGHT_MODE": "लाइट मोड",
+    "SIGNED_IN": "लॉग इन हैं",
+    "SIGN_OUT": "साइन आउट",
+    "LANGUAGE": "भाषा चुनें"
+  },
+  "HOME": {
+    "TITLE": "आसान यात्रा",
+    "SUBTITLE": "TEDBUS के साथ अपनी अगली यात्रा बुक करें",
+    "LIVE_OFFERS": "लाइव ऑफ़र",
+    "SEARCH_BUSES": "बसें खोजें"
+  }
+}

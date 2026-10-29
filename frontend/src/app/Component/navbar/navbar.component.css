@@ -1,0 +1,367 @@
+
+:host {
+  display: block;
+  position: relative;
+  z-index: 1000;
+}
+
+.site-header {
+  width: 100%;
+  background: var(--surface-bg, #ffffff);
+  color: var(--text-primary, #17231c);
+  border-top: 4px solid #16834d;
+  border-bottom: 1px solid var(--border-color, #e3e9e5);
+  box-shadow: 0 4px 18px rgba(20, 40, 28, 0.07);
+  transition: background-color 180ms ease, border-color 180ms ease;
+}
+
+.navbar-container {
+  width: min(100% - 64px, 1440px);
+  min-height: 86px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 26px;
+}
+
+/* Brand */
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 11px;
+  flex-shrink: 0;
+  text-decoration: none;
+  color: var(--text-primary, #17231c);
+}
+
+.brand-logo {
+  display: block;
+  width: 60px;
+  height: 54px;
+  object-fit: contain;
+}
+
+.brand-name {
+  font-size: 23px;
+  line-height: 1;
+  font-weight: 800;
+  letter-spacing: -0.8px;
+  color: var(--text-primary, #17231c);
+}
+
+.brand-name span {
+  color: #16834d;
+}
+
+.nav-divider {
+  width: 1px;
+  height: 36px;
+  flex-shrink: 0;
+  background: var(--border-color, #e3e9e5);
+}
+
+/* Main navigation */
+.main-nav {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.nav-link {
+  min-height: 48px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 0 15px;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  background: transparent;
+  color: var(--text-primary, #17231c);
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 500;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background 160ms ease, color 160ms ease;
+}
+
+.nav-link svg {
+  width: 22px;
+  height: 22px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  flex-shrink: 0;
+}
+
+.nav-link:hover {
+  background: var(--surface-secondary, #edf3ef);
+  color: #16834d;
+}
+
+/* Right-side actions */
+.navbar-actions {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 14px;
+  min-width: 0;
+}
+
+/* Dark mode */
+.theme-toggle {
+  min-height: 42px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 0 14px;
+  border: 1px solid var(--border-color, #dce6df);
+  border-radius: 24px;
+  background: var(--surface-bg, #ffffff);
+  color: var(--text-primary, #17231c);
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: all 180ms ease;
+}
+
+.theme-toggle svg {
+  width: 17px;
+  height: 17px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.theme-toggle:hover {
+  border-color: #16834d;
+  background: var(--surface-secondary, #edf3ef);
+}
+
+/* Google sign-in */
+.google-signin {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 150px;
+}
+
+/* Signed-in state */
+.user-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.signed-in-label {
+  color: var(--text-secondary, #65736a);
+  font-size: 13px;
+}
+
+.sign-out-button {
+  min-height: 40px;
+  padding: 0 14px;
+  border: 1px solid var(--border-color, #dce6df);
+  border-radius: 22px;
+  background: var(--surface-bg, #ffffff);
+  color: var(--text-primary, #17231c);
+  font: inherit;
+  cursor: pointer;
+}
+
+.sign-out-button:hover {
+  border-color: #16834d;
+  color: #16834d;
+}
+
+/* Language selector */
+.language-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  min-height: 42px;
+  padding: 0 10px;
+  border: 1px solid var(--border-color, #dce6df);
+  border-radius: 9px;
+  background: var(--surface-bg, #ffffff);
+}
+
+.language-wrapper svg {
+  width: 17px;
+  height: 17px;
+  flex-shrink: 0;
+  fill: none;
+  stroke: var(--text-secondary, #65736a);
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.language-select {
+  max-width: 112px;
+  min-width: 75px;
+  padding: 7px 2px;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: var(--text-primary, #17231c);
+  font-family: inherit;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.language-select option {
+  background: var(--surface-bg, #ffffff);
+  color: var(--text-primary, #17231c);
+}
+
+/* Keyboard accessibility */
+.nav-link:focus-visible,
+.theme-toggle:focus-visible,
+.sign-out-button:focus-visible,
+.brand:focus-visible,
+.language-select:focus-visible {
+  outline: 2px solid #16834d;
+  outline-offset: 3px;
+}
+
+/* Tablet */
+@media (max-width: 1000px) {
+  .navbar-container {
+    width: calc(100% - 32px);
+    gap: 15px;
+  }
+
+  .brand-logo {
+    width: 48px;
+    height: 46px;
+  }
+
+  .brand-name {
+    font-size: 20px;
+  }
+
+  .main-nav {
+    gap: 2px;
+  }
+
+  .nav-link {
+    gap: 7px;
+    padding: 0 9px;
+    font-size: 14px;
+  }
+
+  .navbar-actions {
+    gap: 8px;
+  }
+
+  .theme-toggle {
+    padding: 0 10px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 700px) {
+  .navbar-container {
+    width: calc(100% - 24px);
+    min-height: auto;
+    padding: 12px 0;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .brand {
+    margin-right: auto;
+  }
+
+  .brand-logo {
+    width: 44px;
+    height: 40px;
+  }
+
+  .brand-name {
+    font-size: 19px;
+  }
+
+  .nav-divider {
+    display: none;
+  }
+
+  .main-nav {
+    order: 3;
+    width: 100%;
+    justify-content: flex-start;
+    border-top: 1px solid var(--border-color, #e3e9e5);
+    padding-top: 8px;
+  }
+
+  .nav-link {
+    flex: 1;
+    min-height: 42px;
+    padding: 0 8px;
+    font-size: 13px;
+  }
+
+  .nav-link svg {
+    width: 19px;
+    height: 19px;
+  }
+
+  .navbar-actions {
+    gap: 8px;
+  }
+
+  .theme-toggle {
+    width: 42px;
+    min-width: 42px;
+    height: 42px;
+    padding: 0;
+    border-radius: 50%;
+  }
+
+  .theme-toggle span:last-child {
+    display: none;
+  }
+
+  .google-signin {
+    min-width: 0;
+    max-width: 145px;
+    overflow: hidden;
+  }
+
+  .language-wrapper {
+    min-height: 38px;
+    padding: 0 7px;
+  }
+
+  .language-wrapper svg {
+    display: none;
+  }
+
+  .language-select {
+    min-width: 64px;
+    max-width: 84px;
+    font-size: 12px;
+  }
+
+  .signed-in-label {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .site-header,
+  .nav-link,
+  .theme-toggle {
+    transition: none;
+  }
+}

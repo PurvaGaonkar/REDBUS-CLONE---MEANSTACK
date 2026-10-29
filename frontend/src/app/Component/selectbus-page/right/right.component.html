@@ -1,12 +1,28 @@
-<div>
-    <app-sorting-bar></app-sorting-bar>
-    <div *ngFor="let bus of matchedbus; index as i">
-        <div *ngFor="let key of getkeys()">
-            <div *ngIf="bus._id === key">
-                <app-bus-box [rating]='bus.rating' [busid]="bus._id" [operatorname]="bus.operatorName" [bustype]="bus.busType"
-                    [departuretime]="bus.departureTime" [livetracking]="bus.liveTracking" [reschedulable]="bus.reschedulable" [filledseats]="seats[key]"
-                    [routedetails]="routes"></app-bus-box>
-            </div>
-        </div>
-    </div>
+<div class="bus-results">
+  <app-sorting-bar></app-sorting-bar>
+
+  <div class="results-message" *ngIf="loading" role="status">
+    Loading available buses...
+  </div>
+
+  <div class="results-message error-message" *ngIf="!loading && errorMessage">
+    {{ errorMessage }}
+  </div>
+
+ <div class="bus-list" *ngIf="!loading && matchedbus.length > 0">
+  <ng-container *ngFor="let bus of matchedbus">
+    <app-bus-box
+      *ngIf="bus._id"
+      [rating]="bus.rating"
+      [busid]="bus._id"
+      [operatorname]="bus.operatorName"
+      [bustype]="bus.busType"
+      [departuretime]="bus.departureTime"
+      [livetracking]="bus.liveTracking"
+      [reschedulable]="bus.reschedulable"
+      [filledseats]="seats[bus._id] || []"
+      [routedetails]="routes">
+    </app-bus-box>
+  </ng-container>
+</div>
 </div>
